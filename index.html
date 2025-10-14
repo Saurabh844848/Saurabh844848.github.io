@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saurabh Belgaonkar — Resume & Projects</title>
+  <meta name="description" content="Saurabh Belgaonkar • Ph.D. student at Texas A&M • Perception & sensing for autonomous systems. Resume, projects, publications, and contact." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>SB</text></svg>">
+  <style>
+    :root{
+      --bg:#0f172a; /* slate-900 */
+      --panel:#111827; /* gray-900 */
+      --muted:#94a3b8; /* slate-400 */
+      --text:#e5e7eb; /* gray-200 */
+      --accent:#22c55e; /* green-500 */
+      --ring:#334155; /* slate-700 */
+      --link:#60a5fa; /* blue-400 */
+      --chip:#1f2937; /* gray-800 */
+    }
+    @media (prefers-color-scheme: light) {
+      :root{ --bg:#f8fafc; --panel:#ffffff; --muted:#475569; --text:#0f172a; --accent:#16a34a; --ring:#e2e8f0; --link:#2563eb; --chip:#f1f5f9; }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1050px;margin-inline:auto;padding:24px}
+    header{position:sticky;top:0;background:color-mix(in oklab, var(--bg) 92%, transparent);backdrop-filter:saturate(180%) blur(10px);z-index:50;border-bottom:1px solid var(--ring)}
+    nav{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    nav .links a{padding:10px 12px;border-radius:10px}
+    nav .links a:hover{background:var(--chip);text-decoration:none}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:28px 0}
+    .card{background:var(--panel);border:1px solid var(--ring);border-radius:16px;padding:22px}
+    h1{font-size:clamp(28px,3vw,40px);line-height:1.15;margin:0 0 8px}
+    h2{font-size:clamp(22px,2.2vw,28px);margin:0 0 12px}
+    h3{font-size:18px;margin:18px 0 8px}
+    .muted{color:var(--muted)}
+    .row{display:grid;grid-template-columns:1fr 2fr;gap:18px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--text);color:var(--bg);font-weight:600;border-radius:12px;padding:10px 14px;border:0;cursor:pointer}
+    .btn:hover{filter:brightness(0.95)}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:var(--chip);border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:13px}
+    .list{display:grid;gap:12px}
+    .item{padding:14px;border-radius:12px;border:1px solid var(--ring);background:var(--panel)}
+    .item h4{margin:0 0 6px;font-size:16px}
+    .item .meta{font-size:13px;color:var(--muted)}
+    .two-col{columns:2;gap:18px}
+    @media (max-width:780px){.two-col{columns:1}}
+    footer{margin:36px 0;color:var(--muted);font-size:14px}
+    .section{margin-top:26px}
+    .pdf-embed{width:100%;height:min(85vh, 1000px);border:1px solid var(--ring);border-radius:12px}
+    .tagline{font-size:clamp(16px,1.6vw,18px)}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:var(--chip);border:1px solid var(--ring);padding:2px 6px;border-radius:8px;font-size:12px}
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Saurabh Belgaonkar",
+      "email": "mailto:saurabhbelgaonkar@tamu.edu",
+      "jobTitle": "Ph.D. Student, Mechanical Engineering",
+      "affiliation": {"@type":"CollegeOrUniversity","name":"Texas A&M University"},
+      "url": "",
+      "sameAs": ["https://www.linkedin.com/in/saurabhbelgaonkar"],
+      "knowsAbout": ["Perception","LiDAR","Camera Calibration","Sensor Fusion","Object Detection","Segmentation","ROS2","C++","Python"]
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <div style="display:flex;gap:12px;align-items:center">
+          <strong>SB</strong>
+          <span class="muted">Portfolio</span>
+        </div>
+        <div class="links" role="list">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#publications">Publications</a>
+          <a href="#skills">Skills</a>
+          <a href="#resume">Resume</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="top">
+    <section class="hero">
+      <div class="card">
+        <h1>Saurabh Belgaonkar</h1>
+        <p class="tagline">Ph.D. student (Mechanical Engineering) at Texas A&M • Perception & sensing for autonomous systems • ROS2, C++/Python, camera–LiDAR fusion</p>
+        <div class="chips" style="margin:10px 0 14px">
+          <span class="chip">College Station, TX</span>
+          <span class="chip">Open to internships</span>
+          <span class="chip">AutoDrive Challenge: 2nd (2024), 3rd (2025)</span>
+        </div>
+        <p style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="#resume">⬇️ Download Resume</a>
+          <a class="btn" href="mailto:saurabhbelgaonkar@tamu.edu">✉️ Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/saurabhbelgaonkar" rel="noopener">👔 LinkedIn</a>
+        </p>
+      </div>
+      <div class="card">
+        <h2>Education</h2>
+        <div class="list">
+          <div class="item">
+            <h4>Texas A&M University — Ph.D., Mechanical Engineering <span class="muted">(2023–Present)</span></h4>
+            <div class="meta">GPA 4.0/4.0 • Controls, Intelligent Systems & Robotics, Convex Optimization, Reinforcement Learning</div>
+          </div>
+          <div class="item">
+            <h4>Indian Institute of Science (IISc) — M.Tech, Mechanical Engineering <span class="muted">(2020–2022)</span></h4>
+            <div class="meta">CGPA 9.2/10</div>
+          </div>
+          <div class="item">
+            <h4>NIT Warangal — B.Tech, Mechanical Engineering <span class="muted">(2015–2019)</span></h4>
+            <div class="meta">CGPA 8.92/10</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="row">
+        <div class="muted">Oct 2023 – Present · College Station, TX</div>
+        <div class="item">
+          <h4>SAE AutoDrive Challenge — Vice Captain; Perception Lead</h4>
+          <ul>
+            <li>Led perception and delivered a real-time camera–LiDAR stack (object, lane, traffic-light detection; fusion; tracking) in C++/ROS2 enabling obstacle-aware planning.</li>
+            <li>Coordinated cross-team validation and timelines; team placed <strong>2nd (2024)</strong> and <strong>3rd (2025)</strong> overall.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="muted">Aug 2022 – Jul 2023 · Pune, India</div>
+        <div class="item">
+          <h4>Atlas Copco — Data Scientist</h4>
+          <ul>
+            <li>Built end-to-end ML pipelines for machine health monitoring (CNNs, GANs, signal processing) enabling early fault prediction and reducing manual effort.</li>
+            <li>Engineered SQL/Azure Databricks workflows and analytics dashboards improving diagnostic visibility and predictive accuracy.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Selected Projects</h2>
+      <div class="list">
+        <div class="item">
+          <h4>Real-time Perception Stack <span class="muted">(2024)</span></h4>
+          <ul>
+            <li>Finetuned YOLO (15 classes) to mAP 0.85; deployed via OpenVINO for real-time inference on Intel GPU (C++/ROS2).</li>
+            <li>LiDAR pipeline: ground removal → voxel filtering → Euclidean clustering; multi-object tracking with Kalman filter.</li>
+            <li>Camera–LiDAR calibration and timestamp sync; closed-loop tests with rviz/rosbag replay and latency profiling to ensure throughput.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h4>Lane Segmentation (UNet) <span class="muted">(2025–Present)</span></h4>
+          <ul>
+            <li>Multi-class segmentation for lane geometry/type/color; trained on BDD100K with robust augmentations.</li>
+            <li>Deployed with TensorRT in C++ for real-time performance; lightweight post-processing (mask thinning + polyline fit).</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h4>Feature-level Camera–LiDAR Fusion <span class="muted">(2025–Present)</span></h4>
+          <ul>
+            <li>Siamese RGB–LiDAR detector (YOLOv8 backbone) with cross-modal fusion; evaluated on KITTI, stronger under glare/occlusion vs. camera-only baseline.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h4>Obstacle-Aware Behavior Planning <span class="muted">(2024)</span></h4>
+          <ul>
+            <li>Integrated perception outputs into a semantic map and layered occupancy grid (static + dynamic) with class-aware motion prediction.</li>
+          </ul>
+        </div>
+        <div class="item">
+          <h4>Speed Estimation from Vibration <span class="muted">(2022)</span></h4>
+          <ul>
+            <li>FFT-based candidates + 1D-CNN spectral features with LightGBM verifier; 99.5% accuracy on ~500 labeled datasets.</li>
+            <li>Deployed on Databricks (Spark/PySpark).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <h2>Publications</h2>
+      <div class="two-col">
+        <div class="item">
+          <h4>Adaptive Super-Twisting Control of a First-Order Sliding Mode with an Output Constraint</h4>
+          <div class="meta">IEEE Access — J. Keshavan, <strong>S. Belgaonkar</strong>, S. Murali</div>
+        </div>
+        <div class="item">
+          <h4>A Path Planning Algorithm for a Hybrid UAV Traveling in Noise Restricted Zones</h4>
+          <div class="meta">Under review — IEEE Trans. on Aerospace and Electronic Systems — S. Belgaonkar et al.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="chips" aria-label="Skills list">
+        <span class="chip">Python</span><span class="chip">C++</span><span class="chip">ROS2</span><span class="chip">PyTorch</span><span class="chip">TensorRT</span><span class="chip">CUDA</span><span class="chip">OpenCV</span><span class="chip">Gurobi</span><span class="chip">Object Detection</span><span class="chip">Segmentation</span><span class="chip">Camera Calibration</span><span class="chip">LiDAR Clustering</span><span class="chip">Fusion</span><span class="chip">Azure Databricks</span><span class="chip">Spark</span><span class="chip">SQL</span>
+      </div>
+    </section>
+
+    <section id="resume" class="section">
+      <h2>Resume</h2>
+      <p>Place your PDF at <span class="kbd">/assets/resume.pdf</span> in this repository. The viewer below will load it automatically. A direct <a href="assets/resume.pdf" download>download link</a> is also provided.</p>
+      <iframe class="pdf-embed" src="assets/resume.pdf#view=FitH" title="Resume PDF"></iframe>
+    </section>
+
+    <section class="section">
+      <h2>Honors & Awards</h2>
+      <ul>
+        <li>Overall <strong>2nd (2024)</strong> and <strong>3rd (2025)</strong> in SAE AutoDrive Challenge</li>
+        <li><strong>S. V. Sastry Memorial Gold Medal</strong>, IISc, 2022</li>
+      </ul>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Saurabh Belgaonkar • Built with a single <span class="kbd">index.html</span> on GitHub Pages.</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!--
+    Deployment notes (quick):
+    1) Create a repo named <your-username>.github.io
+    2) Add this index.html at the repo root
+    3) Create a folder /assets and upload your resume as resume.pdf
+    4) Commit to the default branch (usually main). GitHub Pages will go live in ~1 minute.
+
+    Optional tweaks:
+    - Replace colors in :root for your theme.
+    - Update links in the hero buttons.
+    - Add a custom domain in Settings → Pages.
+  -->
+</body>
+</html>
