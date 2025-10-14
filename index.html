@@ -53,6 +53,10 @@
     .pdf-embed{width:100%;height:min(85vh, 1000px);border:1px solid var(--ring);border-radius:12px}
     .tagline{font-size:clamp(16px,1.6vw,18px)}
     .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:var(--chip);border:1px solid var(--ring);padding:2px 6px;border-radius:8px;font-size:12px}
+    .video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:var(--chip);border:1px solid var(--ring);border-radius:12px;overflow:hidden}
+    .video-wrap iframe,.video-wrap video{position:absolute;inset:0;width:100%;height:100%;border:0}
+    .video-grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media (min-width:900px){.video-grid{grid-template-columns:1fr 1fr}}
   </style>
   <script type="application/ld+json">
     {
@@ -156,6 +160,21 @@
             <li>LiDAR pipeline: ground removal → voxel filtering → Euclidean clustering; multi-object tracking with Kalman filter.</li>
             <li>Camera–LiDAR calibration and timestamp sync; closed-loop tests with rviz/rosbag replay and latency profiling to ensure throughput.</li>
           </ul>
+          <div class="video-grid">
+            <!-- YouTube/Vimeo embed (preferred for larger files) -->
+            <div class="video-wrap">
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Perception Stack Demo"
+                loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <!-- Local MP4 served from GitHub Pages (keep <100MB; optimize to 720p) -->
+            <div class="video-wrap">
+              <video controls preload="metadata" poster="assets/img/perception-thumb.jpg">
+                <source src="assets/videos/perception-demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
         <div class="item">
           <h4>Lane Segmentation (UNet) <span class="muted">(2025–Present)</span></h4>
@@ -163,6 +182,9 @@
             <li>Multi-class segmentation for lane geometry/type/color; trained on BDD100K with robust augmentations.</li>
             <li>Deployed with TensorRT in C++ for real-time performance; lightweight post-processing (mask thinning + polyline fit).</li>
           </ul>
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/ANOTHER_VIDEO_ID" title="Lane Segmentation Demo" loading="lazy" allowfullscreen></iframe>
+          </div>
         </div>
         <div class="item">
           <h4>Feature-level Camera–LiDAR Fusion <span class="muted">(2025–Present)</span></h4>
