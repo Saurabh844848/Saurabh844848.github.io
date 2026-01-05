@@ -9,65 +9,112 @@
 
   <style>
     :root{
-      --bg:#0f172a;
-      --panel:#111827;
-      --muted:#94a3b8;
-      --text:#e5e7eb;
-      --accent:#22c55e;
-      --ring:#334155;
-      --link:#60a5fa;
-      --chip:#1f2937;
+      --bg:#0f172a; /* slate-900 */
+      --panel:#111827; /* gray-900 */
+      --muted:#94a3b8; /* slate-400 */
+      --text:#e5e7eb; /* gray-200 */
+      --accent:#22c55e; /* green-500 */
+      --ring:#334155; /* slate-700 */
+      --link:#60a5fa; /* blue-400 */
+      --chip:#1f2937; /* gray-800 */
     }
     @media (prefers-color-scheme: light) {
-      :root{ --bg:#f8fafc; --panel:#ffffff; --muted:#475569; --text:#0f172a; --accent:#16a34a; --ring:#e2e8f0; --link:#2563eb; --chip:#f1f5f9; }
+      :root{
+        --bg:#f8fafc; --panel:#ffffff; --muted:#475569; --text:#0f172a;
+        --accent:#16a34a; --ring:#e2e8f0; --link:#2563eb; --chip:#f1f5f9;
+      }
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif
+    }
     a{color:var(--link);text-decoration:none}
     a:hover{text-decoration:underline}
     .container{max-width:1050px;margin-inline:auto;padding:24px}
-    header{position:sticky;top:0;background:color-mix(in oklab, var(--bg) 92%, transparent);backdrop-filter:saturate(180%) blur(10px);z-index:50;border-bottom:1px solid var(--ring)}
+
+    header{
+      position:sticky;top:0;
+      background:color-mix(in oklab, var(--bg) 92%, transparent);
+      backdrop-filter:saturate(180%) blur(10px);
+      z-index:50;border-bottom:1px solid var(--ring)
+    }
     nav{display:flex;gap:16px;align-items:center;justify-content:space-between}
     nav .links a{padding:10px 12px;border-radius:10px}
     nav .links a:hover{background:var(--chip);text-decoration:none}
+
     .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:28px 0}
     .card{background:var(--panel);border:1px solid var(--ring);border-radius:16px;padding:22px}
+
     h1{font-size:clamp(28px,3vw,40px);line-height:1.15;margin:0 0 8px}
     h2{font-size:clamp(22px,2.2vw,28px);margin:0 0 12px}
     h3{font-size:18px;margin:18px 0 8px}
     .muted{color:var(--muted)}
+    .tagline{font-size:clamp(16px,1.6vw,18px)}
+
     .row{display:grid;grid-template-columns:1fr 2fr;gap:18px}
     @media (max-width:900px){.hero{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
-    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--text);color:var(--bg);font-weight:600;border-radius:12px;padding:10px 14px;border:0;cursor:pointer}
+
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      background:var(--text);color:var(--bg);font-weight:600;
+      border-radius:12px;padding:10px 14px;border:0;cursor:pointer
+    }
     .btn:hover{filter:brightness(0.95)}
     .btn.secondary{background:transparent;color:var(--text);border:1px solid var(--ring)}
+
     .chips{display:flex;flex-wrap:wrap;gap:8px}
     .chip{background:var(--chip);border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:13px}
+
     .list{display:grid;gap:12px}
     .item{padding:14px;border-radius:12px;border:1px solid var(--ring);background:var(--panel)}
     .item h4{margin:0 0 6px;font-size:16px}
     .item .meta{font-size:13px;color:var(--muted)}
+
     .two-col{columns:2;gap:18px}
     @media (max-width:780px){.two-col{columns:1}}
-    footer{margin:36px 0;color:var(--muted);font-size:14px}
+
     .section{margin-top:26px}
     .pdf-embed{width:100%;height:min(85vh, 1000px);border:1px solid var(--ring);border-radius:12px}
-    .tagline{font-size:clamp(16px,1.6vw,18px)}
-    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:var(--chip);border:1px solid var(--ring);padding:2px 6px;border-radius:8px;font-size:12px}
 
-    /* Video + Images */
-    .video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:var(--chip);border:1px solid var(--ring);border-radius:12px;overflow:hidden}
+    .kbd{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+      background:var(--chip);border:1px solid var(--ring);
+      padding:2px 6px;border-radius:8px;font-size:12px
+    }
+
+    /* Video embeds */
+    .video-wrap{
+      position:relative;width:100%;
+      aspect-ratio:16/9;
+      background:var(--chip);
+      border:1px solid var(--ring);
+      border-radius:12px;
+      overflow:hidden
+    }
     .video-wrap iframe,.video-wrap video{position:absolute;inset:0;width:100%;height:100%;border:0}
+
     .video-grid{display:grid;grid-template-columns:1fr;gap:14px}
     @media (min-width:900px){.video-grid{grid-template-columns:1fr 1fr}}
 
+    /* Aspect ratio overrides */
+    .video-wrap.ratio-1x1 { aspect-ratio: 1 / 1; }
+    .video-wrap.ratio-9x16 { aspect-ratio: 9 / 16; }
+    .video-wrap.ratio-4x3 { aspect-ratio: 4 / 3; }
+
+    /* Image gallery (Perception images) */
     .media-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;margin-top:10px}
     @media (max-width:900px){.media-grid{grid-template-columns:repeat(2, 1fr)}}
     @media (max-width:520px){.media-grid{grid-template-columns:1fr}}
     .media-grid figure{margin:0}
-    .media-grid img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--ring);background:var(--chip)}
+    .media-grid img{
+      width:100%;height:auto;display:block;border-radius:12px;
+      border:1px solid var(--ring);background:var(--chip)
+    }
     .media-grid figcaption{margin-top:6px;color:var(--muted);font-size:12px}
+
+    footer{margin:36px 0;color:var(--muted);font-size:14px}
   </style>
 
   <script type="application/ld+json">
@@ -78,7 +125,7 @@
       "email": "mailto:saurabhbelgaonkar@tamu.edu",
       "jobTitle": "Ph.D. Student, Mechanical Engineering",
       "affiliation": {"@type":"CollegeOrUniversity","name":"Texas A&M University"},
-      "url": "https://saurabh844848.github.io/",
+      "url": "",
       "sameAs": ["https://www.linkedin.com/in/saurabhbelgaonkar"],
       "knowsAbout": ["Perception","LiDAR","Camera Calibration","Sensor Fusion","Object Detection","Segmentation","ROS2","C++","Python","Optimization","Motion Planning"]
     }
@@ -118,7 +165,6 @@
           <a class="btn" href="#resume">📄 View Resume</a>
           <a class="btn" href="mailto:saurabhbelgaonkar@tamu.edu">✉️ Email</a>
           <a class="btn" href="https://www.linkedin.com/in/saurabhbelgaonkar" rel="noopener">👔 LinkedIn</a>
-          <a class="btn secondary" href="https://saurabh844848.github.io/" rel="noopener">🌐 Website</a>
         </p>
       </div>
 
@@ -172,7 +218,7 @@
 
       <div class="list">
 
-        <!-- IMAGES (requested) -->
+        <!-- Images (requested) -->
         <div class="item" id="proj-perception">
           <h4>Real-time Perception Stack <span class="muted">(Feb 2024 – Dec 2024)</span></h4>
           <ul>
@@ -201,7 +247,7 @@
           </div>
         </div>
 
-        <!-- VIDEO (requested) -->
+        <!-- Video (requested) -->
         <div class="item" id="proj-behavior">
           <h4>Obstacle Avoidance Behavior Planning <span class="muted">(Jan 2024 – May 2024)</span></h4>
           <ul>
@@ -209,7 +255,7 @@
             <li>Built a layered occupancy grid combining static + dynamic obstacles with class-aware motion prediction.</li>
           </ul>
           <div class="meta" style="margin-top:8px">
-            Demo video (YouTube): replace <span class="kbd">YT_OBSTACLE_AVOIDANCE_ID</span> with your video ID.
+            Demo video (YouTube): replace <span class="kbd">YT_OBSTACLE_AVOIDANCE_ID</span>.
           </div>
           <div class="video-wrap" style="margin-top:10px">
             <iframe
@@ -222,13 +268,13 @@
           </div>
         </div>
 
-        <!-- VIDEO (requested) -->
+        <!-- Video (requested) -->
         <div class="item" id="proj-hybrid-uav">
           <h4>Energy-Aware Path Planning for Hybrid UAVs <span class="muted">(Feb 2024 – Jan 2025)</span></h4>
           <ul>
             <li>Continuous-space planning for route + energy optimization under battery and noise constraints.</li>
-            <li>Formulated as a Mixed-Integer Convex Program (Gurobi), achieving ~10× speedup vs. SOTA baselines.</li>
-            <li>Designed a heuristic for a related TSP variant (near-optimal within ~2%).</li>
+            <li>Formulated as a Mixed-Integer Convex Program (Gurobi), with large speedup vs. discretized labeling baselines.</li>
+            <li>Designed a heuristic for a related TSP variant (near-optimal within a small gap).</li>
           </ul>
           <div class="meta" style="margin-top:8px">
             Demo video (YouTube): replace <span class="kbd">YT_HYBRID_UAV_ID</span>.
@@ -244,34 +290,48 @@
           </div>
         </div>
 
-        <!-- VIDEO (requested) -->
+        <!-- DCA: TWO side-by-side 1:1 videos (requested) -->
         <div class="item" id="proj-dca">
           <h4>Multi-Robot Path Planning via Difference-of-Convex Algorithm (DCA) <span class="muted">(Aug 2025 – Nov 2025)</span></h4>
           <ul>
             <li>Encoded collision avoidance as DC constraints and solved a sequence of convex QP subproblems (Python + Gurobi).</li>
             <li>Added penalty terms + active-set strategy to scale collision constraints; used visibility-graph initialization for obstacle scenarios.</li>
-            <li>Validated collision-free trajectories; scaled to ~160 robots on a workstation.</li>
+            <li>Validated collision-free trajectories; scaled to large robot counts on a workstation.</li>
           </ul>
+
           <div class="meta" style="margin-top:8px">
-            Demo video (YouTube): replace <span class="kbd">YT_DCA_ID</span>.
+            Two square demo videos (YouTube): replace <span class="kbd">YT_DCA_ID_1</span> and <span class="kbd">YT_DCA_ID_2</span>.
           </div>
-          <div class="video-wrap" style="margin-top:10px">
-            <iframe
-              src="https://www.youtube.com/embed/YT_DCA_ID"
-              title="Multi-Robot Path Planning via DCA Demo"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
+
+          <div class="video-grid" style="margin-top:10px">
+            <div class="video-wrap ratio-1x1">
+              <iframe
+                src="https://www.youtube.com/embed/YT_DCA_ID_1"
+                title="DCA Multi-Robot Path Planning Demo 1"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="video-wrap ratio-1x1">
+              <iframe
+                src="https://www.youtube.com/embed/YT_DCA_ID_2"
+                title="DCA Multi-Robot Path Planning Demo 2"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
-        <!-- VIDEO (requested) -->
+        <!-- Video (requested) -->
         <div class="item" id="proj-formation">
           <h4>Formation Control with Vision-based Collision Avoidance <span class="muted">(Mar 2020 – Jul 2022)</span></h4>
           <ul>
             <li>Vision-based formation control using a super-twisting controller (finite-time convergence) with no inter-robot communication.</li>
-            <li>Implemented on physical robots in Python/ROS; matched MATLAB simulation performance benchmarks.</li>
+            <li>Implemented on physical robots in Python/ROS; matched MATLAB simulation benchmarks.</li>
           </ul>
           <div class="meta" style="margin-top:8px">
             Demo video (YouTube): replace <span class="kbd">YT_FORMATION_ID</span>.
@@ -287,7 +347,7 @@
           </div>
         </div>
 
-        <!-- VIDEO (requested) -->
+        <!-- Video (requested) -->
         <div class="item" id="proj-lane-unet">
           <h4>Lane Segmentation (UNet) <span class="muted">(Jun 2025 – Present)</span></h4>
           <ul>
@@ -312,7 +372,7 @@
         <div class="item" id="proj-fusion">
           <h4>Feature-level Camera–LiDAR Fusion <span class="muted">(Apr 2025 – Present)</span></h4>
           <ul>
-            <li>Siamese RGB–LiDAR detector (YOLOv8 backbone) with feature-level cross-fusion; evaluated on KITTI.</li>
+            <li>Siamese RGB–LiDAR detector with feature-level cross-fusion; evaluated on KITTI.</li>
             <li>Improved robustness under glare/occlusion vs. camera-only baseline while retaining real-time inference.</li>
           </ul>
         </div>
@@ -320,16 +380,15 @@
         <div class="item" id="proj-ldtsp">
           <h4>Exact Algorithm for Load-Dependent Traveling Salesman Problem (LD-TSP) <span class="muted">(Mar 2025 – Oct 2025)</span></h4>
           <ul>
-            <li>Developed a load-dependent energy model; showed energy-optimal tour equivalent to a TSP tour up to a constant factor.</li>
-            <li>Built a branch-and-cut MILP solver with ordering variables enforcing sequence + subtour elimination.</li>
-            <li>Solved instances up to ~50 targets to optimality quickly; achieved small gaps on larger instances.</li>
+            <li>Developed a load-dependent energy model; strengthened an exact MILP approach with ordering/subtour constraints.</li>
+            <li>Solved moderate-size instances to optimality; achieved small gaps on larger instances.</li>
           </ul>
         </div>
 
         <div class="item" id="proj-vibration">
           <h4>Speed Estimation from Vibration Data <span class="muted">(Aug 2022 – Nov 2022)</span></h4>
           <ul>
-            <li>FFT candidates + 1D-CNN spectral features with LightGBM verifier; ~99.5% accuracy on labeled datasets.</li>
+            <li>FFT candidates + 1D-CNN spectral features with LightGBM verifier; high accuracy on labeled datasets.</li>
             <li>Deployed on Databricks (Spark/PySpark).</li>
           </ul>
         </div>
@@ -405,15 +464,27 @@
   </script>
 
   <!--
-    Media notes:
-    - YouTube ID = the part after "v=" in a normal URL, e.g. https://www.youtube.com/watch?v=abc123 -> abc123
-    - Images for perception:
-        /assets/img/perception-01.jpg
-        /assets/img/perception-02.jpg
-        /assets/img/perception-03.jpg
-    - Resumes:
-        /assets/resume_perception.pdf
-        /assets/resume_planning.pdf
+    FILES TO ADD TO YOUR REPO:
+
+    Resumes (put in /assets/):
+      - /assets/resume_perception.pdf
+      - /assets/resume_planning.pdf
+
+    Perception images (put in /assets/img/):
+      - /assets/img/perception-01.jpg
+      - /assets/img/perception-02.jpg
+      - /assets/img/perception-03.jpg
+
+    YouTube IDs to replace:
+      - YT_OBSTACLE_AVOIDANCE_ID
+      - YT_HYBRID_UAV_ID
+      - YT_DCA_ID_1
+      - YT_DCA_ID_2
+      - YT_FORMATION_ID
+      - YT_LANE_UNET_ID
+
+    TIP: YouTube ID is the part after "v=" in a URL:
+      https://www.youtube.com/watch?v=abc123  ->  abc123
   -->
 </body>
 </html>
