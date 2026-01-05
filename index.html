@@ -268,7 +268,7 @@
           </div>
         </div>
 
-        <!-- Video (requested) -->
+        <!-- Energy-Aware Hybrid UAV: SIDE-BY-SIDE 16:9 + 1:1 (requested) -->
         <div class="item" id="proj-hybrid-uav">
           <h4>Energy-Aware Path Planning for Hybrid UAVs <span class="muted">(Feb 2024 – Jan 2025)</span></h4>
           <ul>
@@ -276,21 +276,37 @@
             <li>Formulated as a Mixed-Integer Convex Program (Gurobi), with large speedup vs. discretized labeling baselines.</li>
             <li>Designed a heuristic for a related TSP variant (near-optimal within a small gap).</li>
           </ul>
+
           <div class="meta" style="margin-top:8px">
-            Demo video (YouTube): replace <span class="kbd">YT_HYBRID_UAV_ID</span>.
+            Two demo videos: <span class="kbd">YT_HYBRID_UAV_16x9_ID</span> (16:9) and <span class="kbd">YT_HYBRID_UAV_1x1_ID</span> (1:1).
           </div>
-          <div class="video-wrap" style="margin-top:10px">
-            <iframe
-              src="https://www.youtube.com/embed/YT_HYBRID_UAV_ID"
-              title="Energy-Aware Path Planning for Hybrid UAVs Demo"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
+
+          <div class="video-grid" style="margin-top:10px">
+            <!-- 16:9 video (default aspect-ratio from .video-wrap) -->
+            <div class="video-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/n7NHtvDMthg"
+                title="Energy-Aware Path Planning for Hybrid UAVs Demo"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+
+            <!-- 1:1 video -->
+            <div class="video-wrap ratio-1x1">
+              <iframe
+                src="https://www.youtube.com/embed/UX731AamogI"
+                title="Energy-Aware Path Planning for Hybrid UAVs Demo (1:1)"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
-        <!-- DCA: TWO side-by-side 1:1 videos (requested) -->
+        <!-- DCA: TWO side-by-side 1:1 videos -->
         <div class="item" id="proj-dca">
           <h4>Multi-Robot Path Planning via Difference-of-Convex Algorithm (DCA) <span class="muted">(Aug 2025 – Nov 2025)</span></h4>
           <ul>
@@ -300,7 +316,7 @@
           </ul>
 
           <div class="meta" style="margin-top:8px">
-            Two square demo videos (YouTube): replace <span class="kbd">YT_DCA_ID_1</span> and <span class="kbd">YT_DCA_ID_2</span>.
+            Two square demo videos.
           </div>
 
           <div class="video-grid" style="margin-top:10px">
@@ -316,7 +332,7 @@
 
             <div class="video-wrap ratio-1x1">
               <iframe
-                src="https://youtube.com/embed/R42K_GI_s_U"
+                src="https://www.youtube.com/embed/R42K_GI_s_U"
                 title="Multi-Robot Path Planning with obstacle avoidance"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -475,16 +491,19 @@
       - /assets/img/perception-02.jpg
       - /assets/img/perception-03.jpg
 
-    YouTube IDs to replace:
-      - YT_OBSTACLE_AVOIDANCE_ID
-      - YT_HYBRID_UAV_ID
-      - YT_DCA_ID_1
-      - YT_DCA_ID_2
-      - YT_FORMATION_ID
-      - YT_LANE_UNET_ID
+    VIDEO IDs TO REPLACE:
+      - Energy-Aware Hybrid UAV:
+          YT_HYBRID_UAV_16x9_ID  (for the 16:9 video)
+          YT_HYBRID_UAV_1x1_ID   (for the 1:1 video)
+      - Formation:
+          YT_FORMATION_ID
+      - Lane UNet:
+          YT_LANE_UNET_ID
 
-    TIP: YouTube ID is the part after "v=" in a URL:
-      https://www.youtube.com/watch?v=abc123  ->  abc123
+    TIP: YouTube ID is:
+      - youtu.be/XXXX -> XXXX
+      - youtube.com/shorts/XXXX -> XXXX
+      - youtube.com/watch?v=XXXX -> XXXX
   -->
 </body>
 </html>
