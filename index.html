@@ -98,6 +98,16 @@
     .video-grid{display:grid;grid-template-columns:1fr;gap:14px}
     @media (min-width:900px){.video-grid{grid-template-columns:1fr 1fr}}
 
+    /* Mixed ratios side-by-side but SAME HEIGHT */
+    .video-grid-mixed{
+      display:grid;
+      grid-template-columns: 16fr 9fr; /* 16:9 + 1:1 => equal heights */
+      gap:14px;
+    }
+    @media (max-width:900px){
+      .video-grid-mixed{ grid-template-columns: 1fr; }
+    }
+
     /* Aspect ratio overrides */
     .video-wrap.ratio-1x1 { aspect-ratio: 1 / 1; }
     .video-wrap.ratio-9x16 { aspect-ratio: 9 / 16; }
@@ -247,7 +257,7 @@
           </div>
         </div>
 
-        <!-- Video (requested) -->
+        <!-- Obstacle Avoidance -->
         <div class="item" id="proj-behavior">
           <h4>Obstacle Avoidance Behavior Planning <span class="muted">(Jan 2024 – May 2024)</span></h4>
           <ul>
@@ -255,7 +265,7 @@
             <li>Built a layered occupancy grid combining static + dynamic obstacles with class-aware motion prediction.</li>
           </ul>
           <div class="meta" style="margin-top:8px">
-            Demo video (YouTube): replace <span class="kbd">YT_OBSTACLE_AVOIDANCE_ID</span>.
+            Demo video (YouTube).
           </div>
           <div class="video-wrap" style="margin-top:10px">
             <iframe
@@ -268,7 +278,7 @@
           </div>
         </div>
 
-        <!-- Energy-Aware Hybrid UAV: SIDE-BY-SIDE 16:9 + 1:1 (requested) -->
+        <!-- Energy-Aware: 16:9 + 1:1 SIDE-BY-SIDE, SAME HEIGHT -->
         <div class="item" id="proj-hybrid-uav">
           <h4>Energy-Aware Path Planning for Hybrid UAVs <span class="muted">(Feb 2024 – Jan 2025)</span></h4>
           <ul>
@@ -278,25 +288,25 @@
           </ul>
 
           <div class="meta" style="margin-top:8px">
-            Two demo videos: <span class="kbd">YT_HYBRID_UAV_16x9_ID</span> (16:9) and <span class="kbd">YT_HYBRID_UAV_1x1_ID</span> (1:1).
+            Two demo videos (same-height layout): replace <span class="kbd">YT_HYBRID_UAV_16x9_ID</span> (16:9) and <span class="kbd">YT_HYBRID_UAV_1x1_ID</span> (1:1).
           </div>
 
-          <div class="video-grid" style="margin-top:10px">
-            <!-- 16:9 video (default aspect-ratio from .video-wrap) -->
+          <div class="video-grid-mixed" style="margin-top:10px">
+            <!-- 16:9 (default) -->
             <div class="video-wrap">
               <iframe
-                src="https://www.youtube.com/embed/n7NHtvDMthg"
-                title="Energy-Aware Path Planning for Hybrid UAVs Demo"
+                src="https://www.youtube.com/embed/YT_HYBRID_UAV_16x9_ID"
+                title="Energy-Aware Path Planning for Hybrid UAVs Demo (16:9)"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen></iframe>
             </div>
 
-            <!-- 1:1 video -->
+            <!-- 1:1 -->
             <div class="video-wrap ratio-1x1">
               <iframe
-                src="https://www.youtube.com/embed/UX731AamogI"
+                src="https://www.youtube.com/embed/YT_HYBRID_UAV_1x1_ID"
                 title="Energy-Aware Path Planning for Hybrid UAVs Demo (1:1)"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -306,7 +316,7 @@
           </div>
         </div>
 
-        <!-- DCA: TWO side-by-side 1:1 videos -->
+        <!-- DCA: TWO side-by-side 1:1 -->
         <div class="item" id="proj-dca">
           <h4>Multi-Robot Path Planning via Difference-of-Convex Algorithm (DCA) <span class="muted">(Aug 2025 – Nov 2025)</span></h4>
           <ul>
@@ -314,10 +324,6 @@
             <li>Added penalty terms + active-set strategy to scale collision constraints; used visibility-graph initialization for obstacle scenarios.</li>
             <li>Validated collision-free trajectories; scaled to large robot counts on a workstation.</li>
           </ul>
-
-          <div class="meta" style="margin-top:8px">
-            Two square demo videos.
-          </div>
 
           <div class="video-grid" style="margin-top:10px">
             <div class="video-wrap ratio-1x1">
@@ -342,7 +348,7 @@
           </div>
         </div>
 
-        <!-- Video (requested) -->
+        <!-- Formation (placeholder) -->
         <div class="item" id="proj-formation">
           <h4>Formation Control with Vision-based Collision Avoidance <span class="muted">(Mar 2020 – Jul 2022)</span></h4>
           <ul>
@@ -363,7 +369,7 @@
           </div>
         </div>
 
-        <!-- Video (requested) -->
+        <!-- Lane UNet (placeholder) -->
         <div class="item" id="proj-lane-unet">
           <h4>Lane Segmentation (UNet) <span class="muted">(Jun 2025 – Present)</span></h4>
           <ul>
@@ -384,7 +390,7 @@
           </div>
         </div>
 
-        <!-- Additional combined projects (no media requested) -->
+        <!-- Additional projects (no media) -->
         <div class="item" id="proj-fusion">
           <h4>Feature-level Camera–LiDAR Fusion <span class="muted">(Apr 2025 – Present)</span></h4>
           <ul>
@@ -480,30 +486,12 @@
   </script>
 
   <!--
-    FILES TO ADD TO YOUR REPO:
+    Replace these in Energy-Aware section:
+      - YT_HYBRID_UAV_16x9_ID  (the 16:9 video ID)
+      - YT_HYBRID_UAV_1x1_ID   (the 1:1 video ID)
 
-    Resumes (put in /assets/):
-      - /assets/resume_perception.pdf
-      - /assets/resume_planning.pdf
-
-    Perception images (put in /assets/img/):
-      - /assets/img/perception-01.jpg
-      - /assets/img/perception-02.jpg
-      - /assets/img/perception-03.jpg
-
-    VIDEO IDs TO REPLACE:
-      - Energy-Aware Hybrid UAV:
-          YT_HYBRID_UAV_16x9_ID  (for the 16:9 video)
-          YT_HYBRID_UAV_1x1_ID   (for the 1:1 video)
-      - Formation:
-          YT_FORMATION_ID
-      - Lane UNet:
-          YT_LANE_UNET_ID
-
-    TIP: YouTube ID is:
-      - youtu.be/XXXX -> XXXX
-      - youtube.com/shorts/XXXX -> XXXX
-      - youtube.com/watch?v=XXXX -> XXXX
+    Rule: embed URL is always:
+      https://www.youtube.com/embed/VIDEO_ID
   -->
 </body>
 </html>
