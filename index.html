@@ -4,18 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Saurabh Belgaonkar — Resume & Projects</title>
-  <meta name="description" content="Saurabh Belgaonkar • Ph.D. student at Texas A&M • Perception & sensing for autonomous systems. Resume, projects, publications, and contact." />
+  <meta name="description" content="Saurabh Belgaonkar • Ph.D. student at Texas A&M • Perception, planning & optimization for autonomous systems. Resume, projects, publications, and contact." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>SB</text></svg>">
+
   <style>
     :root{
-      --bg:#0f172a; /* slate-900 */
-      --panel:#111827; /* gray-900 */
-      --muted:#94a3b8; /* slate-400 */
-      --text:#e5e7eb; /* gray-200 */
-      --accent:#22c55e; /* green-500 */
-      --ring:#334155; /* slate-700 */
-      --link:#60a5fa; /* blue-400 */
-      --chip:#1f2937; /* gray-800 */
+      --bg:#0f172a;
+      --panel:#111827;
+      --muted:#94a3b8;
+      --text:#e5e7eb;
+      --accent:#22c55e;
+      --ring:#334155;
+      --link:#60a5fa;
+      --chip:#1f2937;
     }
     @media (prefers-color-scheme: light) {
       :root{ --bg:#f8fafc; --panel:#ffffff; --muted:#475569; --text:#0f172a; --accent:#16a34a; --ring:#e2e8f0; --link:#2563eb; --chip:#f1f5f9; }
@@ -40,6 +41,7 @@
     @media (max-width:900px){.hero{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
     .btn{display:inline-flex;align-items:center;gap:10px;background:var(--text);color:var(--bg);font-weight:600;border-radius:12px;padding:10px 14px;border:0;cursor:pointer}
     .btn:hover{filter:brightness(0.95)}
+    .btn.secondary{background:transparent;color:var(--text);border:1px solid var(--ring)}
     .chips{display:flex;flex-wrap:wrap;gap:8px}
     .chip{background:var(--chip);border:1px solid var(--ring);padding:6px 10px;border-radius:999px;font-size:13px}
     .list{display:grid;gap:12px}
@@ -53,11 +55,21 @@
     .pdf-embed{width:100%;height:min(85vh, 1000px);border:1px solid var(--ring);border-radius:12px}
     .tagline{font-size:clamp(16px,1.6vw,18px)}
     .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;background:var(--chip);border:1px solid var(--ring);padding:2px 6px;border-radius:8px;font-size:12px}
+
+    /* Video + Images */
     .video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:var(--chip);border:1px solid var(--ring);border-radius:12px;overflow:hidden}
     .video-wrap iframe,.video-wrap video{position:absolute;inset:0;width:100%;height:100%;border:0}
     .video-grid{display:grid;grid-template-columns:1fr;gap:14px}
     @media (min-width:900px){.video-grid{grid-template-columns:1fr 1fr}}
+
+    .media-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;margin-top:10px}
+    @media (max-width:900px){.media-grid{grid-template-columns:repeat(2, 1fr)}}
+    @media (max-width:520px){.media-grid{grid-template-columns:1fr}}
+    .media-grid figure{margin:0}
+    .media-grid img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--ring);background:var(--chip)}
+    .media-grid figcaption{margin-top:6px;color:var(--muted);font-size:12px}
   </style>
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -66,12 +78,13 @@
       "email": "mailto:saurabhbelgaonkar@tamu.edu",
       "jobTitle": "Ph.D. Student, Mechanical Engineering",
       "affiliation": {"@type":"CollegeOrUniversity","name":"Texas A&M University"},
-      "url": "",
+      "url": "https://saurabh844848.github.io/",
       "sameAs": ["https://www.linkedin.com/in/saurabhbelgaonkar"],
-      "knowsAbout": ["Perception","LiDAR","Camera Calibration","Sensor Fusion","Object Detection","Segmentation","ROS2","C++","Python"]
+      "knowsAbout": ["Perception","LiDAR","Camera Calibration","Sensor Fusion","Object Detection","Segmentation","ROS2","C++","Python","Optimization","Motion Planning"]
     }
   </script>
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -95,24 +108,26 @@
     <section class="hero">
       <div class="card">
         <h1>Saurabh Belgaonkar</h1>
-        <p class="tagline">Ph.D. student (Mechanical Engineering) at Texas A&M • Perception & sensing for autonomous systems • ROS2, C++/Python, camera–LiDAR fusion</p>
+        <p class="tagline">Ph.D. student (Mechanical Engineering) at Texas A&amp;M • Perception, planning &amp; optimization for autonomous systems • ROS2, C++/Python, camera–LiDAR fusion</p>
         <div class="chips" style="margin:10px 0 14px">
           <span class="chip">College Station, TX</span>
           <span class="chip">Open to internships</span>
           <span class="chip">AutoDrive Challenge: 2nd (2024), 3rd (2025)</span>
         </div>
         <p style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn" href="#resume">⬇️ Download Resume</a>
+          <a class="btn" href="#resume">📄 View Resume</a>
           <a class="btn" href="mailto:saurabhbelgaonkar@tamu.edu">✉️ Email</a>
           <a class="btn" href="https://www.linkedin.com/in/saurabhbelgaonkar" rel="noopener">👔 LinkedIn</a>
+          <a class="btn secondary" href="https://saurabh844848.github.io/" rel="noopener">🌐 Website</a>
         </p>
       </div>
+
       <div class="card">
         <h2>Education</h2>
         <div class="list">
           <div class="item">
-            <h4>Texas A&M University — Ph.D., Mechanical Engineering <span class="muted">(2023–Present)</span></h4>
-            <div class="meta">GPA 4.0/4.0 • Controls, Intelligent Systems & Robotics, Convex Optimization, Reinforcement Learning</div>
+            <h4>Texas A&amp;M University — Ph.D., Mechanical Engineering <span class="muted">(2023–Present)</span></h4>
+            <div class="meta">GPA 4.0/4.0 • Controls, Intelligent Systems &amp; Robotics, Convex Optimization, Reinforcement Learning</div>
           </div>
           <div class="item">
             <h4>Indian Institute of Science (IISc) — M.Tech, Mechanical Engineering <span class="muted">(2020–2022)</span></h4>
@@ -128,6 +143,7 @@
 
     <section id="experience" class="section">
       <h2>Experience</h2>
+
       <div class="row">
         <div class="muted">Oct 2023 – Present · College Station, TX</div>
         <div class="item">
@@ -138,6 +154,7 @@
           </ul>
         </div>
       </div>
+
       <div class="row">
         <div class="muted">Aug 2022 – Jul 2023 · Pune, India</div>
         <div class="item">
@@ -152,59 +169,171 @@
 
     <section id="projects" class="section">
       <h2>Selected Projects</h2>
+
       <div class="list">
-        <div class="item">
-          <h4>Real-time Perception Stack <span class="muted">(2024)</span></h4>
+
+        <!-- IMAGES (requested) -->
+        <div class="item" id="proj-perception">
+          <h4>Real-time Perception Stack <span class="muted">(Feb 2024 – Dec 2024)</span></h4>
           <ul>
-            <li>Finetuned YOLO (15 classes) to mAP 0.85; deployed via OpenVINO for real-time inference on Intel GPU (C++/ROS2).</li>
-            <li>LiDAR pipeline: ground removal → voxel filtering → Euclidean clustering; multi-object tracking with Kalman filter.</li>
-            <li>Camera–LiDAR calibration and timestamp sync; closed-loop tests with rviz/rosbag replay and latency profiling to ensure throughput.</li>
+            <li>Fine-tuned YOLO (15 classes) to mAP 0.85; deployed via OpenVINO for real-time inference on Intel GPU (C++/ROS2).</li>
+            <li>LiDAR pipeline: ground removal → voxel filtering → Euclidean clustering; multi-object tracking with a Kalman filter.</li>
+            <li>Camera–LiDAR extrinsic calibration + timestamp sync; projected 3D clusters to image plane and matched with 2D detections (IoU) for labeling and distance recovery.</li>
           </ul>
-          <div class="video-grid">
-            <!-- YouTube/Vimeo embed (preferred for larger files) -->
-            <div class="video-wrap">
-              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Perception Stack Demo"
-                loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <!-- Local MP4 served from GitHub Pages (keep <100MB; optimize to 720p) -->
-            <div class="video-wrap">
-              <video controls preload="metadata" poster="assets/img/perception-thumb.jpg">
-                <source src="assets/videos/perception-demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+
+          <div class="meta" style="margin-top:8px">
+            Images: place files in <span class="kbd">/assets/img/</span> and update names below.
+          </div>
+
+          <div class="media-grid" aria-label="Perception stack image gallery">
+            <figure>
+              <img src="assets/img/perception-01.jpg" alt="Perception stack: RViz view with fused detections" loading="lazy">
+              <figcaption>Fusion + tracking in RViz</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/img/perception-02.jpg" alt="YOLO detections on camera frame" loading="lazy">
+              <figcaption>Camera detections (YOLO)</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/img/perception-03.jpg" alt="LiDAR clustering visualization" loading="lazy">
+              <figcaption>LiDAR clustering + objects</figcaption>
+            </figure>
           </div>
         </div>
-        <div class="item">
-          <h4>Lane Segmentation (UNet) <span class="muted">(2025–Present)</span></h4>
+
+        <!-- VIDEO (requested) -->
+        <div class="item" id="proj-behavior">
+          <h4>Obstacle Avoidance Behavior Planning <span class="muted">(Jan 2024 – May 2024)</span></h4>
+          <ul>
+            <li>Integrated perception outputs (class, pose, velocity) into an HD-map–derived semantic map for planning.</li>
+            <li>Built a layered occupancy grid combining static + dynamic obstacles with class-aware motion prediction.</li>
+          </ul>
+          <div class="meta" style="margin-top:8px">
+            Demo video (YouTube): replace <span class="kbd">YT_OBSTACLE_AVOIDANCE_ID</span> with your video ID.
+          </div>
+          <div class="video-wrap" style="margin-top:10px">
+            <iframe
+              src="https://www.youtube.com/embed/YT_OBSTACLE_AVOIDANCE_ID"
+              title="Obstacle Avoidance Behavior Planning Demo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- VIDEO (requested) -->
+        <div class="item" id="proj-hybrid-uav">
+          <h4>Energy-Aware Path Planning for Hybrid UAVs <span class="muted">(Feb 2024 – Jan 2025)</span></h4>
+          <ul>
+            <li>Continuous-space planning for route + energy optimization under battery and noise constraints.</li>
+            <li>Formulated as a Mixed-Integer Convex Program (Gurobi), achieving ~10× speedup vs. SOTA baselines.</li>
+            <li>Designed a heuristic for a related TSP variant (near-optimal within ~2%).</li>
+          </ul>
+          <div class="meta" style="margin-top:8px">
+            Demo video (YouTube): replace <span class="kbd">YT_HYBRID_UAV_ID</span>.
+          </div>
+          <div class="video-wrap" style="margin-top:10px">
+            <iframe
+              src="https://www.youtube.com/embed/YT_HYBRID_UAV_ID"
+              title="Energy-Aware Path Planning for Hybrid UAVs Demo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- VIDEO (requested) -->
+        <div class="item" id="proj-dca">
+          <h4>Multi-Robot Path Planning via Difference-of-Convex Algorithm (DCA) <span class="muted">(Aug 2025 – Nov 2025)</span></h4>
+          <ul>
+            <li>Encoded collision avoidance as DC constraints and solved a sequence of convex QP subproblems (Python + Gurobi).</li>
+            <li>Added penalty terms + active-set strategy to scale collision constraints; used visibility-graph initialization for obstacle scenarios.</li>
+            <li>Validated collision-free trajectories; scaled to ~160 robots on a workstation.</li>
+          </ul>
+          <div class="meta" style="margin-top:8px">
+            Demo video (YouTube): replace <span class="kbd">YT_DCA_ID</span>.
+          </div>
+          <div class="video-wrap" style="margin-top:10px">
+            <iframe
+              src="https://www.youtube.com/embed/YT_DCA_ID"
+              title="Multi-Robot Path Planning via DCA Demo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- VIDEO (requested) -->
+        <div class="item" id="proj-formation">
+          <h4>Formation Control with Vision-based Collision Avoidance <span class="muted">(Mar 2020 – Jul 2022)</span></h4>
+          <ul>
+            <li>Vision-based formation control using a super-twisting controller (finite-time convergence) with no inter-robot communication.</li>
+            <li>Implemented on physical robots in Python/ROS; matched MATLAB simulation performance benchmarks.</li>
+          </ul>
+          <div class="meta" style="margin-top:8px">
+            Demo video (YouTube): replace <span class="kbd">YT_FORMATION_ID</span>.
+          </div>
+          <div class="video-wrap" style="margin-top:10px">
+            <iframe
+              src="https://www.youtube.com/embed/YT_FORMATION_ID"
+              title="Formation Control with Vision-based Collision Avoidance Demo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- VIDEO (requested) -->
+        <div class="item" id="proj-lane-unet">
+          <h4>Lane Segmentation (UNet) <span class="muted">(Jun 2025 – Present)</span></h4>
           <ul>
             <li>Multi-class segmentation for lane geometry/type/color; trained on BDD100K with robust augmentations.</li>
-            <li>Deployed with TensorRT in C++ for real-time performance; lightweight post-processing (mask thinning + polyline fit).</li>
+            <li>Deployed with TensorRT in C++ for real-time performance; post-processing: mask thinning + polyline fit.</li>
           </ul>
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/ANOTHER_VIDEO_ID" title="Lane Segmentation Demo" loading="lazy" allowfullscreen></iframe>
+          <div class="meta" style="margin-top:8px">
+            Demo video (YouTube): replace <span class="kbd">YT_LANE_UNET_ID</span>.
+          </div>
+          <div class="video-wrap" style="margin-top:10px">
+            <iframe
+              src="https://www.youtube.com/embed/YT_LANE_UNET_ID"
+              title="Lane Segmentation (UNet) Demo"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
           </div>
         </div>
-        <div class="item">
-          <h4>Feature-level Camera–LiDAR Fusion <span class="muted">(2025–Present)</span></h4>
+
+        <!-- Additional combined projects (no media requested) -->
+        <div class="item" id="proj-fusion">
+          <h4>Feature-level Camera–LiDAR Fusion <span class="muted">(Apr 2025 – Present)</span></h4>
           <ul>
-            <li>Siamese RGB–LiDAR detector (YOLOv8 backbone) with cross-modal fusion; evaluated on KITTI, stronger under glare/occlusion vs. camera-only baseline.</li>
+            <li>Siamese RGB–LiDAR detector (YOLOv8 backbone) with feature-level cross-fusion; evaluated on KITTI.</li>
+            <li>Improved robustness under glare/occlusion vs. camera-only baseline while retaining real-time inference.</li>
           </ul>
         </div>
-        <div class="item">
-          <h4>Obstacle-Aware Behavior Planning <span class="muted">(2024)</span></h4>
+
+        <div class="item" id="proj-ldtsp">
+          <h4>Exact Algorithm for Load-Dependent Traveling Salesman Problem (LD-TSP) <span class="muted">(Mar 2025 – Oct 2025)</span></h4>
           <ul>
-            <li>Integrated perception outputs into a semantic map and layered occupancy grid (static + dynamic) with class-aware motion prediction.</li>
+            <li>Developed a load-dependent energy model; showed energy-optimal tour equivalent to a TSP tour up to a constant factor.</li>
+            <li>Built a branch-and-cut MILP solver with ordering variables enforcing sequence + subtour elimination.</li>
+            <li>Solved instances up to ~50 targets to optimality quickly; achieved small gaps on larger instances.</li>
           </ul>
         </div>
-        <div class="item">
-          <h4>Speed Estimation from Vibration <span class="muted">(2022)</span></h4>
+
+        <div class="item" id="proj-vibration">
+          <h4>Speed Estimation from Vibration Data <span class="muted">(Aug 2022 – Nov 2022)</span></h4>
           <ul>
-            <li>FFT-based candidates + 1D-CNN spectral features with LightGBM verifier; 99.5% accuracy on ~500 labeled datasets.</li>
+            <li>FFT candidates + 1D-CNN spectral features with LightGBM verifier; ~99.5% accuracy on labeled datasets.</li>
             <li>Deployed on Databricks (Spark/PySpark).</li>
           </ul>
         </div>
+
       </div>
     </section>
 
@@ -217,7 +346,7 @@
         </div>
         <div class="item">
           <h4>A Path Planning Algorithm for a Hybrid UAV Traveling in Noise Restricted Zones</h4>
-          <div class="meta">Under review — IEEE Trans. on Aerospace and Electronic Systems — S. Belgaonkar et al.</div>
+          <div class="meta">IEEE Trans. on Aerospace and Electronic Systems — S. Belgaonkar et al.</div>
         </div>
       </div>
     </section>
@@ -225,18 +354,34 @@
     <section id="skills" class="section">
       <h2>Skills</h2>
       <div class="chips" aria-label="Skills list">
-        <span class="chip">Python</span><span class="chip">C++</span><span class="chip">ROS2</span><span class="chip">PyTorch</span><span class="chip">TensorRT</span><span class="chip">CUDA</span><span class="chip">OpenCV</span><span class="chip">Gurobi</span><span class="chip">Object Detection</span><span class="chip">Segmentation</span><span class="chip">Camera Calibration</span><span class="chip">LiDAR Clustering</span><span class="chip">Fusion</span><span class="chip">Azure Databricks</span><span class="chip">Spark</span><span class="chip">SQL</span>
+        <span class="chip">Python</span><span class="chip">C++</span><span class="chip">ROS2</span><span class="chip">PyTorch</span><span class="chip">TensorRT</span><span class="chip">CUDA</span><span class="chip">OpenCV</span><span class="chip">Gurobi</span>
+        <span class="chip">Object Detection</span><span class="chip">Segmentation</span><span class="chip">Multi-object Tracking</span><span class="chip">Camera Calibration</span><span class="chip">LiDAR Clustering</span><span class="chip">Sensor Fusion</span>
+        <span class="chip">Azure Databricks</span><span class="chip">Spark</span><span class="chip">SQL</span>
       </div>
     </section>
 
     <section id="resume" class="section">
       <h2>Resume</h2>
-      <p>Place your PDF at <span class="kbd">/assets/resume.pdf</span> in this repository. The viewer below will load it automatically. A direct <a href="assets/resume.pdf" download>download link</a> is also provided.</p>
-      <iframe class="pdf-embed" src="assets/resume.pdf#view=FitH" title="Resume PDF"></iframe>
+
+      <p class="muted" style="margin-top:-6px">
+        Upload your PDFs to <span class="kbd">/assets/</span> and choose which one to show.
+      </p>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 12px">
+        <button class="btn secondary" type="button" onclick="setResume('assets/resume_perception.pdf')">Perception / Autonomy</button>
+        <button class="btn secondary" type="button" onclick="setResume('assets/resume_planning.pdf')">Planning / Optimization</button>
+        <a class="btn" id="resumeDownload" href="assets/resume_perception.pdf" download>⬇️ Download</a>
+      </div>
+
+      <iframe class="pdf-embed" id="resumeFrame" src="assets/resume_perception.pdf#view=FitH" title="Resume PDF"></iframe>
+
+      <noscript>
+        <p class="muted">Enable JavaScript to switch resume versions. You can still download directly from the buttons above.</p>
+      </noscript>
     </section>
 
     <section class="section">
-      <h2>Honors & Awards</h2>
+      <h2>Honors &amp; Awards</h2>
       <ul>
         <li>Overall <strong>2nd (2024)</strong> and <strong>3rd (2025)</strong> in SAE AutoDrive Challenge</li>
         <li><strong>S. V. Sastry Memorial Gold Medal</strong>, IISc, 2022</li>
@@ -250,19 +395,25 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    function setResume(path){
+      const frame = document.getElementById('resumeFrame');
+      const dl = document.getElementById('resumeDownload');
+      frame.src = path + '#view=FitH';
+      dl.href = path;
+    }
   </script>
 
   <!--
-    Deployment notes (quick):
-    1) Create a repo named <your-username>.github.io
-    2) Add this index.html at the repo root
-    3) Create a folder /assets and upload your resume as resume.pdf
-    4) Commit to the default branch (usually main). GitHub Pages will go live in ~1 minute.
-
-    Optional tweaks:
-    - Replace colors in :root for your theme.
-    - Update links in the hero buttons.
-    - Add a custom domain in Settings → Pages.
+    Media notes:
+    - YouTube ID = the part after "v=" in a normal URL, e.g. https://www.youtube.com/watch?v=abc123 -> abc123
+    - Images for perception:
+        /assets/img/perception-01.jpg
+        /assets/img/perception-02.jpg
+        /assets/img/perception-03.jpg
+    - Resumes:
+        /assets/resume_perception.pdf
+        /assets/resume_planning.pdf
   -->
 </body>
 </html>
