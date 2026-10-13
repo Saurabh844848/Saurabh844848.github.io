@@ -220,8 +220,8 @@
     .vcard{flex:0 0 clamp(268px, 29vw, 344px);scroll-snap-align:start;color:var(--fg);display:block}
     .vcard:hover{text-decoration:none}
     .vcard-media{position:relative;aspect-ratio:1/1;border-radius:var(--radius);overflow:hidden;background:#1d1d1f}
-    .vcard-media img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-    .vcard:hover .vcard-media img{transform:scale(1.04)}
+    .vcard-media img,.vcard-media video{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease)}
+    .vcard:hover .vcard-media img,.vcard:hover .vcard-media video{transform:scale(1.04)}
     .vcard-media .play-dot{
       position:absolute;right:16px;bottom:16px;width:44px;height:44px;border-radius:50%;
       background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
@@ -315,7 +315,7 @@
     .player{border:0;padding:0;background:transparent;max-width:none;max-height:none;overflow:visible;width:min(92vw, calc(80vh * var(--ratio, 1.7778)))}
     .player::backdrop{background:rgba(0,0,0,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
     .player-frame{aspect-ratio:var(--ratio, 16/9);border-radius:18px;overflow:hidden;background:#000}
-    .player-frame iframe{width:100%;height:100%;border:0;display:block}
+    .player-frame iframe,.player-frame video{width:100%;height:100%;border:0;display:block;background:#000}
     .player-title{color:#a1a1a6;font-size:15px;text-align:center;margin-top:16px}
     .player-close{
       position:fixed;top:20px;right:20px;width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;
@@ -334,7 +334,7 @@
       html{scroll-behavior:auto}
       .js .reveal{opacity:1;transform:none;transition:none}
       .js .reveal:not(.in) .bar i{transform:none}
-      .film img,.vcard-media img{transition:none}
+      .film img,.vcard-media img,.vcard-media video{transition:none}
       .player[open] .player-frame{animation:none}
     }
   </style>
@@ -398,7 +398,7 @@
         </div>
       </div>
       <div class="hero-visual">
-        <canvas id="lidar" role="img" aria-label="Animated simulation of a spinning LiDAR scan around a car, with 3D boxes drawn around detected cars, a pedestrian, barrels, and a deer, and arrows showing the velocity of moving objects."></canvas>
+        <canvas id="lidar" role="img" aria-label="Animated simulation of a spinning LiDAR scan around a car, with 3D boxes drawn around detected cars, a pedestrian, barrels, and a deer, and arrows with speed readouts for moving objects. The ego car carries a spinning LiDAR on its roof."></canvas>
       </div>
     </section>
 
@@ -603,29 +603,34 @@
         <div class="section-head center">
           <p class="eyebrow reveal">Planning &amp; Optimization</p>
           <h2 class="headline reveal" style="--d:80ms">Optimal paths.<br><span class="grad-text">Found fast.</span></h2>
-          <p class="subhead reveal" style="--d:160ms">Mixed-integer programming, convex optimization, and tuned heuristics for routing and trajectory problems that are hard by nature — <strong>from hybrid UAVs to 160-robot fleets.</strong></p>
+          <p class="subhead reveal" style="--d:160ms">Mixed-integer programming, convex optimization, and tuned heuristics for routing and trajectory problems that are hard by nature — <strong>from hybrid UAVs and moving obstacles to 160-robot fleets.</strong></p>
         </div>
       </div>
 
       <div data-carousel>
         <div class="carousel" aria-label="Planning demo videos">
-          <a class="vcard reveal js-video" href="https://www.youtube.com/watch?v=n7NHtvDMthg" data-video="n7NHtvDMthg" data-ratio="16/9" data-title="Energy-aware TSP for a hybrid UAV with electric/gas mode switching (follow camera)">
+          <a class="vcard reveal js-video" href="assets/video/time-dependent-tsp-40-targets-4k60.mp4" data-src="assets/video/time-dependent-tsp-40-targets-4k60.mp4" data-ratio="16/9" data-title="Time-dependent TSP with moving obstacles — a proven-optimal 40-target tour">
+            <div class="vcard-media"><video src="assets/video/time-dependent-tsp-40-targets-loop.mp4" poster="assets/img/time-dependent-tsp.jpg" muted loop playsinline preload="none" aria-label="Animation of one vehicle visiting 40 targets while red and blue bars stream across the field"></video><span class="play-dot"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg></span></div>
+            <h3>40 targets, moving obstacles.</h3>
+            <p>A proven-optimal tour that slips between bars streaming across 15 lanes.</p>
+          </a>
+          <a class="vcard reveal js-video" href="https://www.youtube.com/watch?v=n7NHtvDMthg" data-video="n7NHtvDMthg" data-ratio="16/9" data-title="Energy-aware TSP for a hybrid UAV with electric/gas mode switching (follow camera)" style="--d:90ms">
             <div class="vcard-media"><img src="assets/img/huav-follow.jpg" alt="Hybrid UAV flying a planned route over a lake between noise-restricted city zones" width="720" height="720" loading="lazy"><span class="play-dot"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg></span></div>
             <h3>Hybrid UAV, in flight.</h3>
             <p>An energy-aware tour that switches between electric and gas modes around noise-restricted zones.</p>
           </a>
-          <a class="vcard reveal js-video" href="https://www.youtube.com/watch?v=UX731AamogI" data-video="UX731AamogI" data-ratio="1/1" data-title="Energy-aware TSP for a hybrid UAV with electric/gas mode switching (top view)" style="--d:90ms">
+          <a class="vcard reveal js-video" href="https://www.youtube.com/watch?v=UX731AamogI" data-video="UX731AamogI" data-ratio="1/1" data-title="Energy-aware TSP for a hybrid UAV with electric/gas mode switching (top view)" style="--d:180ms">
             <div class="vcard-media"><img src="assets/img/huav-top.jpg" alt="Top-down view of a hybrid UAV tour visiting targets around outlined city zones" width="720" height="720" loading="lazy"><span class="play-dot"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg></span></div>
             <h3>The same tour, from above.</h3>
             <p>Every target visited, every zone respected — planned with battery limits in the loop.</p>
           </a>
-          <a class="vcard reveal js-video" href="https://www.youtube.com/watch?v=JgCnsgQ59mo" data-video="JgCnsgQ59mo" data-ratio="1/1" data-title="Multi-robot path planning with 100 robots" style="--d:180ms">
-            <div class="vcard-media"><img src="assets/img/mrpp-100.jpg" alt="Plot of 100 numbered robots moving toward their goals without collisions" width="720" height="720" loading="lazy"><span class="play-dot"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg></span></div>
+          <a class="vcard reveal js-video" href="assets/video/multi-robot-100-robots-4k60.mp4" data-src="assets/video/multi-robot-100-robots-4k60.mp4" data-ratio="1/1" data-title="Difference-of-convex trajectory planning — 100 robots" style="--d:270ms">
+            <div class="vcard-media"><video src="assets/video/multi-robot-100-robots-loop.mp4" poster="assets/img/mrpp-100.jpg" muted loop playsinline preload="none" aria-label="Animation of 100 robots following planned trajectories to their goals"></video><span class="play-dot"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg></span></div>
             <h3>100 robots. Zero collisions.</h3>
             <p>Trajectories from a difference-of-convex planner, solved as a sequence of convex QPs.</p>
           </a>
-          <a class="vcard reveal js-video" href="https://www.youtube.com/watch?v=R42K_GI_s_U" data-video="R42K_GI_s_U" data-ratio="1/1" data-title="Multi-robot path planning with obstacle avoidance" style="--d:270ms">
-            <div class="vcard-media"><img src="assets/img/mrpp-obstacles.jpg" alt="Plot of ten robots steering around four circular obstacles" width="720" height="720" loading="lazy"><span class="play-dot"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg></span></div>
+          <a class="vcard reveal js-video" href="assets/video/multi-robot-10-robots-4-obstacles-4k60.mp4" data-src="assets/video/multi-robot-10-robots-4-obstacles-4k60.mp4" data-ratio="1/1" data-title="Difference-of-convex trajectory planning — 10 robots, 4 obstacles" style="--d:360ms">
+            <div class="vcard-media"><video src="assets/video/multi-robot-10-robots-4-obstacles-loop.mp4" poster="assets/img/mrpp-obstacles.jpg" muted loop playsinline preload="none" aria-label="Animation of ten robots steering around four circular obstacles to their goals"></video><span class="play-dot"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z" fill="currentColor"/></svg></span></div>
             <h3>Around the obstacles.</h3>
             <p>Inter-robot and obstacle avoidance together, initialized from a visibility graph.</p>
           </a>
@@ -640,6 +645,17 @@
 
       <div class="wrap" style="margin-top:clamp(56px,7vw,88px)">
         <div class="bento">
+          <div class="tile full reveal" style="--span:12">
+            <p class="tile-eyebrow">Time-dependent TSP with moving obstacles</p>
+            <p class="tile-stat grad-text">98%</p>
+            <p class="tile-text" style="max-width:760px">Of 40-target instances with up to 500 moving obstacles, solved to <strong>proven optimality</strong> by D-ACS — an exact C++ search in continuous space that defers travel-cost and heuristic evaluation, and computes one <strong>Held–Karp bound</strong> per set of children.</p>
+            <div class="tile-visual bars" style="max-width:760px" aria-label="Time to prove optimality: Held–Karp bounds are 15 times faster than MST bounds">
+              <div><div class="bar-label"><span>Proof time · MST bounds</span><span>15×</span></div><div class="bar"><i style="width:100%"></i></div></div>
+              <div><div class="bar-label"><span>Proof time · Held–Karp bounds</span><span>1×</span></div><div class="bar"><i class="accent" style="width:6.7%"></i></div></div>
+            </div>
+            <p class="tile-dates">Apr 2026 – Present · Autonomous Systems Lab</p>
+            <a class="more js-video" href="assets/video/time-dependent-tsp-40-targets-4k60.mp4" data-src="assets/video/time-dependent-tsp-40-targets-4k60.mp4" data-ratio="16/9" data-title="Time-dependent TSP with moving obstacles — a proven-optimal 40-target tour">Watch a proven-optimal 40-target tour</a>
+          </div>
           <div class="tile reveal" style="--span:7">
             <p class="tile-eyebrow">Energy-aware routing for hybrid UAVs</p>
             <p class="tile-stat grad-text">10×</p>
@@ -729,7 +745,7 @@
             <h3>Graduate Research Assistant</h3>
             <p class="xp-org">Autonomous Systems Lab · Texas A&amp;M University · Advisor: <a href="https://engineering.tamu.edu/mechanical/profiles/rathinam-sivakumar.html" rel="noopener">Dr. Sivakumar Rathinam</a></p>
             <ul>
-              <li>Develop optimization algorithms for hybrid UAV planning and TSP routing under battery, safety, and environmental constraints.</li>
+              <li>Develop optimization algorithms for hybrid UAV planning and TSP routing under battery, safety, and environmental constraints, including exact time-dependent routing among moving obstacles.</li>
               <li>Apply problem-specific solvers — A*, branch-and-cut MILP, LKH, and sequential convex QP — across routing and multi-robot trajectory planning.</li>
             </ul>
           </div>
@@ -1062,15 +1078,27 @@
         e.preventDefault();
         const [w, h] = (link.dataset.ratio || '16/9').split('/').map(Number);
         player.style.setProperty('--ratio', (w / h).toFixed(4));
-        frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + link.dataset.video +
-          '?autoplay=1&rel=0&playsinline=1" title="' + link.dataset.title.replace(/"/g, '&quot;') +
-          '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+        const title = link.dataset.title.replace(/"/g, '&quot;');
+        frame.innerHTML = link.dataset.src
+          ? '<video src="' + link.dataset.src + '" title="' + title + '" controls autoplay playsinline></video>'
+          : '<iframe src="https://www.youtube-nocookie.com/embed/' + link.dataset.video +
+            '?autoplay=1&rel=0&playsinline=1" title="' + title +
+            '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
         caption.textContent = link.dataset.title;
         player.showModal();
       }));
       player.querySelector('.player-close').addEventListener('click', () => player.close());
       player.addEventListener('click', e => { if (e.target === player) player.close(); });
       player.addEventListener('close', () => { frame.innerHTML = ''; });
+    }
+
+    // Card videos loop silently while on screen
+    const loops = document.querySelectorAll('.vcard-media video');
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      const looper = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) e.target.play().catch(() => {}); else e.target.pause();
+      }), { threshold: .35 });
+      loops.forEach(v => looper.observe(v));
     }
 
     /* ---------- Résumé switcher ---------- */
@@ -1236,6 +1264,118 @@
         ctx.strokeStyle = ctx.fillStyle = color; ctx.lineWidth = 2.4 * dpr; ctx.lineCap = 'round';
         ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(bx, by); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(lx, ly); ctx.lineTo(sp[0], sp[1]); ctx.closePath(); ctx.fill();
+        // Speed readout just beyond the tip, along the arrow's on-screen direction
+        const text = speed.toFixed(1) + ' m/s', tw = ctx.measureText(text).width;
+        let ux = tx - sx, uy = ty - sy; const ul = Math.hypot(ux, uy);
+        if (ul < 6 * dpr) { ux = 0; uy = 1; } else { ux /= ul; uy /= ul; }
+        const off = 10 * dpr + Math.abs(ux) * tw / 2 + Math.abs(uy) * 9 * dpr;
+        o.speedTag = [text, tx + ux * off, ty + uy * off];
+      }
+
+      // Rounded label with a dark backing; skipped if it would overlap one already drawn
+      function pill(text, cx, cy, color, placed){
+        const tw = ctx.measureText(text).width, padX = 6 * dpr, bh = 18 * dpr, bw = tw + padX * 2;
+        const bx = cx - bw / 2, by = cy - bh / 2;
+        if (placed.some(q => bx < q[0] + q[2] + 4 * dpr && q[0] < bx + bw + 4 * dpr && by < q[1] + q[3] && q[1] < by + bh)) return;
+        placed.push([bx, by, bw, bh]);
+        ctx.fillStyle = 'rgba(0,0,0,.6)';
+        ctx.beginPath();
+        if (ctx.roundRect) ctx.roundRect(bx, by, bw, bh, 5 * dpr); else ctx.rect(bx, by, bw, bh);
+        ctx.fill();
+        ctx.fillStyle = color; ctx.fillText(text, bx + padX, cy + .5 * dpr);
+      }
+
+      // Ego car: a small flat-shaded mesh, painter-sorted each frame. The LiDAR sits at the origin.
+      const EGO = (() => {
+        const faces = [], OX = .55;                       // car body is centred ahead of the sensor
+        const BODY = [222,224,230], GLASS = [26,32,44], TRIM = [44,44,48], TIRE = [26,26,28], RIM = [150,153,160], METAL = [196,200,208], LENS = [22,24,30];
+        const face = (pts, color, center, opts) => {
+          let nx = 0, ny = 0, nz = 0, cx = 0, cy = 0, cz = 0;
+          pts.forEach((a, i) => {
+            const b = pts[(i + 1) % pts.length];
+            nx += (a[1] - b[1]) * (a[2] + b[2]); ny += (a[2] - b[2]) * (a[0] + b[0]); nz += (a[0] - b[0]) * (a[1] + b[1]);
+            cx += a[0] / pts.length; cy += a[1] / pts.length; cz += a[2] / pts.length;
+          });
+          const nl = Math.hypot(nx, ny, nz) || 1; nx /= nl; ny /= nl; nz /= nl;
+          if (nx * (cx - center[0]) + ny * (cy - center[1]) + nz * (cz - center[2]) < 0) { nx = -nx; ny = -ny; nz = -nz; }
+          faces.push(Object.assign({ pts, color, n: [nx, ny, nz], c: [cx, cy, cz] }, opts));
+        };
+        // Body: a side profile (x, z, half-width) extruded across the car
+        const prof = [[2.2,.3,.9],[2.25,.62,.9],[2,.85,.9],[.85,.98,.88],[.15,1.42,.72],[-1.25,1.45,.72],[-1.95,1.05,.88],[-2.2,.95,.9],[-2.22,.3,.9]];
+        const P = (i, side) => [prof[i][0] + OX, side * prof[i][2], prof[i][1]];
+        const lerp = (a, b, t) => a.map((v, k) => v + (b[k] - v) * t);
+        const mid = [OX, 0, .8];
+        prof.forEach((_, i) => {
+          const j = (i + 1) % prof.length;
+          face([P(i, 1), P(j, 1), P(j, -1), P(i, -1)], i === 3 || i === 5 ? GLASS : i === 8 ? TRIM : BODY, mid, { glass: i === 3 || i === 5 });
+        });
+        for (const side of [1, -1]) {
+          face([0, 1, 2, 3, 6, 7, 8].map(i => P(i, side)), BODY, mid);
+          face([3, 4, 5, 6].map(i => P(i, side)), GLASS, mid, { glass: true });
+          // Head- and tail-lights as decals on the nose and tail
+          const hl = (y, t) => { const q = lerp(P(1, 1), P(2, 1), t); return [q[0] + .02, side * y, q[2]]; };
+          face([hl(.48, .2), hl(.84, .2), hl(.84, .75), hl(.48, .75)], [240,246,255], mid, { glow: true, bias: .05 });
+          const tl = (y, t) => { const q = lerp(P(7, 1), P(8, 1), t); return [q[0] - .02, side * y, q[2]]; };
+          face([tl(.5, .04), tl(.86, .04), tl(.86, .26), tl(.5, .26)], [255,59,48], mid, { glow: true, bias: .05 });
+        }
+        // Wheels
+        const SEG = 14, WR = .34, WW = .12;
+        for (const wx of [1.4 + OX, -1.38 + OX]) for (const side of [1, -1]) {
+          const wy = side * .84, hub = [wx, wy, WR];
+          const ring = r => Array.from({ length: SEG }, (_, k) => { const a = k / SEG * TAU; return [wx + r * Math.cos(a), wy + side * WW, WR + r * Math.sin(a)]; });
+          face(ring(WR), TIRE, [wx, wy - side, WR]);
+          face(ring(WR * .62).map(q => [q[0], q[1] + side * .01, q[2]]), RIM, [wx, wy - side, WR], { bias: .04 });
+          for (let k = 0; k < SEG; k++) {
+            const a0 = k / SEG * TAU, a1 = (k + 1) / SEG * TAU;
+            const q = (a, dy) => [wx + WR * Math.cos(a), wy + dy, WR + WR * Math.sin(a)];
+            face([q(a0, -WW), q(a1, -WW), q(a1, WW), q(a0, WW)], TIRE, hub);
+          }
+        }
+        // Roof LiDAR: metal base, dark lens band (lights up where the beam points), metal cap
+        const LR = .17, LS = 18, bands = [[1.46, 1.57, METAL], [1.57, 1.74, LENS], [1.74, 1.82, METAL]];
+        for (const [z0, z1, col] of bands) for (let k = 0; k < LS; k++) {
+          const a0 = k / LS * TAU, a1 = (k + 1) / LS * TAU, q = (a, z) => [LR * Math.cos(a), LR * Math.sin(a), z];
+          face([q(a0, z0), q(a1, z0), q(a1, z1), q(a0, z1)], col, [0, 0, (z0 + z1) / 2], col === LENS ? { lens: (a0 + a1) / 2 } : null);
+        }
+        face(Array.from({ length: LS }, (_, k) => [LR * Math.cos(k / LS * TAU), LR * Math.sin(k / LS * TAU), 1.82]), METAL, [0, 0, 1.6]);
+        return faces;
+      })();
+      const LIGHT = (() => { const l = [-.35, .45, .82], n = Math.hypot(...l); return l.map(v => v / n); })();
+
+      function drawEgo(sweepAngle){
+        // Soft blue pool of light under the car
+        if (project(.55, 0, 0)) {
+          const ex = sp[0], ey = sp[1], rx = 4.2 * F / sp[2], ry = rx * Math.max(.25, -cam.fz);
+          ctx.save(); ctx.translate(ex, ey); ctx.scale(1, ry / rx);
+          const g = ctx.createRadialGradient(0, 0, 0, 0, 0, rx);
+          g.addColorStop(0, 'rgba(41,151,255,.32)'); g.addColorStop(1, 'rgba(41,151,255,0)');
+          ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx, 0, TAU); ctx.fill(); ctx.restore();
+        }
+        const list = [];
+        for (const f of EGO) {
+          const [nx, ny, nz] = f.n, [cx, cy, cz] = f.c;
+          if (nx * (cam.x - cx) + ny * (cam.y - cy) + nz * (cam.z - cz) <= 0) continue;
+          const pts = [];
+          let ok = true;
+          for (const q of f.pts) { if (!project(q[0], q[1], q[2])) { ok = false; break; } pts.push(sp[0], sp[1]); }
+          if (!ok || !project(cx, cy, cz)) continue;
+          let rgb = f.color;
+          if (f.lens !== undefined) {
+            const d = Math.abs(((f.lens - sweepAngle) % TAU + TAU + Math.PI) % TAU - Math.PI);
+            if (!reduceMotion && d < .45) rgb = [100, 210, 255];
+          } else if (!f.glow) {
+            const lit = .38 + .62 * Math.max(0, nx * LIGHT[0] + ny * LIGHT[1] + nz * LIGHT[2]);
+            rgb = rgb.map(v => Math.round(v * lit + (f.glass ? 18 * Math.max(0, nz) : 0)));
+          }
+          list.push({ pts, depth: sp[2] - (f.bias || 0), fill: 'rgb(' + rgb + ')' });
+        }
+        list.sort((a, b) => b.depth - a.depth);
+        ctx.lineJoin = 'round'; ctx.lineWidth = dpr;
+        for (const p of list) {
+          ctx.beginPath(); ctx.moveTo(p.pts[0], p.pts[1]);
+          for (let i = 2; i < p.pts.length; i += 2) ctx.lineTo(p.pts[i], p.pts[i + 1]);
+          ctx.closePath(); ctx.fillStyle = ctx.strokeStyle = p.fill; ctx.fill(); ctx.stroke();
+        }
       }
 
       function draw(now){
@@ -1252,16 +1392,6 @@
           }
           ctx.stroke();
         }
-        // Sweep line
-        const sa = (sweep % AZ) / AZ * TAU;
-        if (!reduceMotion && project(0, 0, 0)) {
-          const x0 = sp[0], y0 = sp[1];
-          if (project(MAX_RANGE * Math.cos(sa), MAX_RANGE * Math.sin(sa), 0)) {
-            const g = ctx.createLinearGradient(x0, y0, sp[0], sp[1]);
-            g.addColorStop(0, 'rgba(255,255,255,.28)'); g.addColorStop(1, 'rgba(255,255,255,0)');
-            ctx.strokeStyle = g; ctx.lineWidth = 1.5 * dpr; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(sp[0], sp[1]); ctx.stroke();
-          }
-        }
         // Points
         let last = null; const base = .07 * F, maxS = 3.2 * dpr;
         for (let i = 0; i < N; i++) {
@@ -1275,13 +1405,23 @@
           let s = base / sp[2]; if (k === 3) s *= 1.25; s = s < dpr ? dpr : s > maxS ? maxS : s;
           ctx.fillRect(sp[0] - s / 2, sp[1] - s / 2, s, s);
         }
-        // Ego vehicle
-        drawBox({ x: 0, y: 0, l: 4.4, w: 1.8, h: 1.5, c: 1, s: 0 }, '#f5f5f7', .55);
-        // Detections: 3D boxes and velocity vectors, then labels on top
+        // Ego car, then the beam leaving its roof LiDAR
+        const sa = (sweep % AZ) / AZ * TAU;
+        drawEgo(sa);
+        if (!reduceMotion && project(0, 0, 1.66)) {
+          const x0 = sp[0], y0 = sp[1];
+          if (project(MAX_RANGE * Math.cos(sa), MAX_RANGE * Math.sin(sa), 0)) {
+            const g = ctx.createLinearGradient(x0, y0, sp[0], sp[1]);
+            g.addColorStop(0, 'rgba(100,210,255,.55)'); g.addColorStop(1, 'rgba(100,210,255,0)');
+            ctx.strokeStyle = g; ctx.lineWidth = 1.5 * dpr; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(sp[0], sp[1]); ctx.stroke();
+          }
+        }
+        // Detections: 3D boxes and velocity vectors, then class labels, then speed readouts
         ctx.textBaseline = 'middle';
         const placed = [];
         for (const o of labeled) {
           o.dist = Math.hypot(o.x, o.y);
+          o.speedTag = null;
           o.shown = o.dist <= MAX_RANGE - 3 && drawBox(o, COLORS[o.label], .9);
           if (o.shown) drawVelocity(o, COLORS[o.label]);
         }
@@ -1290,17 +1430,9 @@
           if (!o.shown || o.quiet) continue;
           const dist = o.dist, color = COLORS[o.label];
           if (!project(o.x, o.y, o.h * 1.04 + .45)) continue;
-          const text = o.label + ' · ' + dist.toFixed(0) + ' m';
-          const tw = ctx.measureText(text).width, padX = 6 * dpr, bh = 18 * dpr;
-          const bx = sp[0] - tw / 2 - padX, by = sp[1] - bh, bw = tw + padX * 2;
-          if (placed.some(q => bx < q[0] + q[2] + 4 * dpr && q[0] < bx + bw + 4 * dpr && by < q[1] + q[3] && q[1] < by + bh)) continue;
-          placed.push([bx, by, bw, bh]);
-          ctx.fillStyle = 'rgba(0,0,0,.6)';
-          ctx.beginPath();
-          if (ctx.roundRect) ctx.roundRect(bx, by, tw + padX * 2, bh, 5 * dpr); else ctx.rect(bx, by, tw + padX * 2, bh);
-          ctx.fill();
-          ctx.fillStyle = color; ctx.fillText(text, bx + padX, by + bh / 2 + .5 * dpr);
+          pill(o.label + ' · ' + dist.toFixed(0) + ' m', sp[0], sp[1] - 9 * dpr, color, placed);
         }
+        for (const o of labeled) if (o.speedTag) pill(o.speedTag[0], o.speedTag[1], o.speedTag[2], COLORS[o.label], placed);
       }
 
       function step(dt, now){
